@@ -1,0 +1,138 @@
+@import url(remedy.css);
+
+@font-face {
+	font-family: 'Sabon';
+	src: url('../fonts/sabon.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Goldman Sans';
+	src: url('../fonts/goldman-sans-vf.woff2');
+	font-display: swap;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 100%;
+	background: seashell;
+	color: black;
+	font-size: 1rem;
+	text-rendering: optimizeLegibility;
+  font-family: 'Goldman Sans', sans-serif;
+	text-decoration-skip-ink: auto;
+	padding: 72px;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+header {
+	margin-bottom:96px;
+}
+
+article {
+	width: 100%;
+}
+
+h1 {
+	font-family: 'Sabon', serif;
+  font-size: 1.8rem;
+	font-weight: normal;
+	line-height: 1.2;
+	text-align: center;
+	color: midnightblue;
+}
+
+p {
+	font-size: 1.5rem;
+	line-height: 1.5;
+}
+
+a {
+	color: cornflowerblue;
+}
+
+a:hover {
+	color: thistle;
+}
+
+figure {
+	width: 80vw;
+	max-width: 640px;
+}
+
+ul#cover-grid {
+	display: grid;
+	width: 60vw;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	grid-gap: 48px;
+}
+
+li {
+	list-style-type: none;
+	text-align: left;
+	width: 240px;
+	position: relative;
+}
+
+#cover-grid a {
+	display: block;
+	width: 240px;
+	height: 320px;
+	background: var(--bg);
+	color: var(--text);
+	text-decoration: none;
+	padding: 12px;
+}
+
+h2 {
+	margin-top: 24px;
+	border-bottom: 1px solid var(--border);
+}
+
+.pattern-grid {
+  background-image: linear-gradient(gainsboro, 1px, transparent 1px), linear-gradient(to right, gainsboro 1px, transparent 1px);
+  background-size: 50px 50px;
+	height: 100%;
+	width: 100%;
+}
+
+.pattern-dot {
+  background-image: radial-gradient(var(--pattern) 1px, transparent 1px), radial-gradient(var(--pattern) 1px, transparent 1px);
+  background-size: calc(20 * 1px) calc(20 * 1px);
+  background-position: 0 0, calc(10 * 1px) calc(10 * 1px);
+	width: 240px;
+	height: 320px;
+	position: absolute;
+	top: 0.75rem;
+  left: 0.75rem;
+	z-index: -1;
+}
+
+.pattern-stripe {
+  background-image: repeating-linear-gradient(45deg, var(--pattern) 0, var(--pattern) 1px, transparent 0, transparent 50%);
+  background-size: 16px 16px;
+	width: 240px;
+	height: 320px;
+	position: absolute;
+	top: 0.75rem;
+  left: 0.75rem;
+	z-index: -1;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.width-sixty {
+	max-width: 60ch;
+}

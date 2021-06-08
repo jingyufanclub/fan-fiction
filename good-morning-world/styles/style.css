@@ -1,0 +1,78 @@
+@import url(../../styles/remedy.css);
+
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 100%;
+	background: #010e21;
+	color: gainsboro;
+	font-size: 1rem;
+	text-rendering: optimizeLegibility;
+  font-family: 'Parisienne', cursive;
+	text-decoration-skip-ink: auto;
+	padding: 48px;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+header {
+	margin: 0 0 12px 0;
+}
+
+.main {
+	display: grid;
+	grid-template-columns: 1rem 1fr 1rem;
+	grid-gap: 12px;
+}
+
+h1 {
+  font-size: 1.8rem;
+	font-weight: normal;
+	line-height: 1.2;
+	text-align: center;
+}
+
+p {
+	font-size: 1.5rem;
+	line-height: 1.5;
+}
+
+a {
+	color: thistle;
+	margin: 0 24px;
+}
+
+a:hover {
+	color: gainsboro;
+}
+
+figure {
+	width: 80vw;
+	max-width: 640px;
+}
+
+.vertical-r {
+	writing-mode: vertical-rl;
+	transform: rotate(180deg);
+}
+
+.vertical-l {
+	writing-mode: vertical-rl;
+	margin: 12px 2px 0 0;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.width-sixty {
+	max-width: 60ch;
+}
