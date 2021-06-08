@@ -27,7 +27,7 @@ body {
 	text-rendering: optimizeLegibility;
   font-family: 'Kippenberger', sans-serif;
 	text-decoration-skip-ink: auto;
-	padding: 24px 48px 96px 48px;
+	padding: 24px 36px 96px 36px;
 }
 
 main {
@@ -80,7 +80,7 @@ nav {
 }
 
 .full-page-image {
-	width: 60vw;
+	width: 75vw;
 }
 
 .vertical {
