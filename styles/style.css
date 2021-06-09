@@ -70,6 +70,10 @@ figure {
 	max-width: 640px;
 }
 
+img {
+	border-radius: 8px;
+}
+
 ul#cover-grid {
 	display: grid;
 	width: 60vw;
