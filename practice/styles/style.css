@@ -79,6 +79,10 @@ nav {
 	width: 100%;
 }
 
+img {
+	border-radius: 8px;
+}
+
 .full-page-image {
 	width: 75vw;
 }
