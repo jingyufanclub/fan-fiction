@@ -2,7 +2,7 @@
 
 @font-face {
 	font-family: 'Kippenberger Bold';
-	src: url('../fonts/kippenberger-normal-700.woff2') format('woff2');
+	src: url('../../fonts/kippenberger-normal-700.woff2') format('woff2');
 	font-weight: bold;
 	font-style: normal;
 	font-display: swap;
@@ -10,7 +10,7 @@
 
 @font-face {
 	font-family: 'Kippenberger';
-	src: url('../fonts/kippenberger-normal-400.woff2') format('woff2');
+	src: url('../../fonts/kippenberger-normal-400.woff2') format('woff2');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;

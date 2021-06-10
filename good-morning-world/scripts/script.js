@@ -1,18 +1,14 @@
-let number = 1;
-const image = document.getElementById("photobooth")
-
-function tomorrow() {
-  if (number === 34) {
-    number = 0
-  }
-  number ++
-  image.src = `images/${number}.jpg`
+function dayOfYear(date) {
+  return (Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) - Date.UTC(date.getFullYear(), 0, 0)) / 24 / 60 / 60 / 1000;
 }
 
-function yesterday() {
-  if (number === 1) {
-    number = 35
-  }
-  number--
-  image.src = `images/${number}.jpg`
+const image = document.getElementById("photobooth")
+
+const index = dayOfYear(new Date()) % 34;
+image.src = `images/${index}.jpg`
+
+const end = document.getElementById("end")
+if (index === 0) {
+  end.style.fontFamily = 'Parisienne, cursive';
+  end.innerHTML = "~ The End ~"
 }

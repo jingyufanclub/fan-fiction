@@ -2,6 +2,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
 
+@font-face {
+	font-family: 'Sabon';
+	src: url('../../fonts/sabon.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
 body {
 	display: flex;
 	flex-direction: column;
@@ -11,7 +19,7 @@ body {
 	color: gainsboro;
 	font-size: 1rem;
 	text-rendering: optimizeLegibility;
-  font-family: 'Parisienne', cursive;
+  font-family: 'Sabon', sans-serif;
 	text-decoration-skip-ink: auto;
 	padding: 48px;
 }
@@ -27,27 +35,32 @@ header {
 	margin: 0 0 12px 0;
 }
 
-.main {
-	display: grid;
-	grid-template-columns: 1rem 1fr 1rem;
-	grid-gap: 12px;
+article {
+	display: flex;
+	flex-direction: column;
+	align-items: center
 }
 
 h1 {
-  font-size: 1.8rem;
+	font-family: 'Parisienne', cursive;
+  font-size: 1.6rem;
 	font-weight: normal;
 	line-height: 1.2;
 	text-align: center;
 }
 
 p {
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	line-height: 1.5;
 }
 
 a {
+	font-family: 'Parisienne', cursive;
 	color: thistle;
-	margin: 0 24px;
+	margin: 48px 0 0 0;
+	font-size: 1.2rem;
+	line-height: 1.5;
+	text-align: center;
 }
 
 a:hover {
@@ -59,14 +72,14 @@ figure {
 	max-width: 640px;
 }
 
-.vertical-r {
-	writing-mode: vertical-rl;
-	transform: rotate(180deg);
+.picture {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 }
 
-.vertical-l {
-	writing-mode: vertical-rl;
-	margin: 12px 2px 0 0;
+#end {
+	margin: 48px 0 0 0;
 }
 
 .text-center {
