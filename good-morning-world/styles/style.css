@@ -32,6 +32,7 @@ main {
 }
 
 header {
+	font-family: 'Parisienne', cursive;
 	margin: 0 0 12px 0;
 }
 
@@ -42,7 +43,6 @@ article {
 }
 
 h1 {
-	font-family: 'Parisienne', cursive;
   font-size: 1.6rem;
 	font-weight: normal;
 	line-height: 1.2;
