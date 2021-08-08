@@ -1,0 +1,79 @@
+@import url(../../styles/remedy.css);
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&family=WindSong:wght@500&display=swap');
+
+body {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: max-content 1fr max-content;
+	grid-gap: 1rem;
+	justify-items: center;
+	width: 100%;
+	margin: auto;
+	background: paleturquoise;
+	color: royalblue;
+	text-rendering: optimizeLegibility;
+  font-family: 'Montserrat', sans-serif;
+	text-decoration-skip-ink: auto;
+}
+
+main {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	width: 80vw;
+	height: 80vh;
+	border: solid 2px lightcyan;
+	border-radius: 4px;
+}
+
+.main-item {
+	padding: 16px;
+	display: grid;
+	align-items: center
+}
+
+.main-item:first-child {
+	border-right: dashed 2px lightcyan;
+}
+
+header, footer {
+	font-family: 'WindSong', cursive;
+}
+
+h1 {
+  font-size: 2rem;
+	font-weight: 500;
+	line-height: 2;
+	text-align: center;
+}
+
+h2 {
+  font-size: 1.5rem;
+	font-weight: 500;
+	line-height: 1.5;
+	text-align: center;
+}
+
+
+p {
+	font-size: 1.2rem;
+	line-height: 1.2;
+	font-weight: 400;
+}
+
+a {
+	font-family: 'WindSong', cursive;
+	color: skyblue;
+	font-size: 1.2rem;
+	line-height: 1.2;
+}
+
+a:hover {
+	color: royalblue;
+}
+
+img {
+	object-fit: cover;
+  width: 100%;
+  max-height: 100%;
+}
