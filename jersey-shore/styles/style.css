@@ -17,11 +17,60 @@ body {
 	text-decoration-skip-ink: auto;
 }
 
-main {
+header, footer {
+	font-family: 'WindSong', cursive;
+}
+
+h1 {
+  font-size: 2rem;
+	line-height: 2;
+	font-weight: 500;
+	text-align: center;
+}
+
+h2 {
+  font-size: 1.5rem;
+	line-height: 1.5;
+	font-weight: 500;
+	text-align: center;
+}
+
+h3 {
+	font-size: 1.5rem;
+	line-height: 1.4;
+	font-weight: 400;
+	font-style: italic;
+}
+
+
+p {
+	font-size: 1.2rem;
+	line-height: 1.2;
+	font-weight: 400;
+}
+
+a {
+	font-family: 'WindSong', cursive;
+	font-size: 1.2rem;
+	line-height: 1.2;
+	color: skyblue;
+}
+
+a:hover {
+	color: royalblue;
+}
+
+img {
+	object-fit: cover;
+  width: 100%;
+  max-height: 100%;
+}
+
+.main-grid {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	width: 80vw;
-	height: 80vh;
+	min-height: 80vh;
 	border: solid 2px lightcyan;
 	border-radius: 4px;
 }
@@ -36,44 +85,13 @@ main {
 	border-right: dashed 2px lightcyan;
 }
 
-header, footer {
-	font-family: 'WindSong', cursive;
-}
+@media (max-width: 768px) {
+	.main-grid {
+		grid-template-columns: 1fr;
+	}
 
-h1 {
-  font-size: 2rem;
-	font-weight: 500;
-	line-height: 2;
-	text-align: center;
-}
-
-h2 {
-  font-size: 1.5rem;
-	font-weight: 500;
-	line-height: 1.5;
-	text-align: center;
-}
-
-
-p {
-	font-size: 1.2rem;
-	line-height: 1.2;
-	font-weight: 400;
-}
-
-a {
-	font-family: 'WindSong', cursive;
-	color: skyblue;
-	font-size: 1.2rem;
-	line-height: 1.2;
-}
-
-a:hover {
-	color: royalblue;
-}
-
-img {
-	object-fit: cover;
-  width: 100%;
-  max-height: 100%;
+	.main-item:first-child {
+		border-right: none;
+		border-bottom: dashed 2px lightcyan;
+	}
 }
