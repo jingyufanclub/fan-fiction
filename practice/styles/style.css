@@ -37,6 +37,10 @@ main {
 	align-items: center;;
 }
 
+section {
+	width: 100%;
+}
+
 header {
 	margin-bottom: 24px;
 }
@@ -58,6 +62,13 @@ h2 {
 h3 {
   font-size: 2rem;
   font-weight: 700;
+	line-height: 1.5;
+}
+
+h4 {
+	font-family: 'Kippenberger Bold', sans-serif;
+  font-size: 6rem;
+	text-transform: uppercase;
 	line-height: 1.5;
 }
 
@@ -99,6 +110,10 @@ img {
 	text-align: right;
 }
 
+.text-left {
+	text-align: left;
+}
+
 .center-row {
 	display: flex;
 	flex-direction: row;
@@ -130,9 +145,47 @@ img {
 .double {
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-gap: 24px;
+	grid-gap: 36px;
 	justify-items: center;
 	align-items: center;
+}
+
+.double-text {
+	min-width: 85vw;
+	min-height: 65vh;
+}
+
+.animate-1 {
+	opacity: 0;
+	animation-name: animate-in;
+	animation-fill-mode: forwards;
+  animation-duration: 1s;
+	animation-delay: 150ms;
+}
+
+.animate-2 {
+	opacity: 0;
+	animation-name: animate-in;
+	animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-delay: 350ms;
+}
+
+.animate-3 {
+	opacity: 0;
+	animation-name: animate-in;
+	animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-delay: 550ms;
+}
+
+@keyframes animate-in {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 @media (min-width: 800px) {
