@@ -70,7 +70,8 @@ li {
 }
 
 #cover-grid a {
-	display: block;
+	display: grid;
+	align-content: center;
 	width: 240px;
 	height: 320px;
 	background: var(--bg);
@@ -80,7 +81,7 @@ li {
 }
 
 h2 {
-	margin-top: 24px;
+	margin-top: 48px;
 	border-bottom: 1px solid var(--border);
 }
 

@@ -155,6 +155,10 @@ img {
 	min-height: 65vh;
 }
 
+.rotate {
+	transform: var(--deg)
+}
+
 .animate-1 {
 	opacity: 0;
 	animation-name: animate-in;
@@ -192,4 +196,8 @@ img {
   .double {
     grid-template-columns: 1fr 1fr;
   }
+
+	img {
+		width: 100%;
+	}
 }
