@@ -27,14 +27,16 @@ body {
 	text-rendering: optimizeLegibility;
   font-family: 'Kippenberger', sans-serif;
 	text-decoration-skip-ink: auto;
-	padding: 24px 36px 96px 36px;
+	padding: 24px;
+	overflow-x: hidden;
 }
 
 main {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;;
+	align-items: center;
+	padding: 24px;
 }
 
 section {
@@ -42,7 +44,7 @@ section {
 }
 
 header {
-	margin-bottom: 24px;
+	margin-bottom: 36px;
 }
 
 h1 {
@@ -92,10 +94,11 @@ nav {
 
 img {
 	border-radius: 8px;
+	width: 100%;
 }
 
 .full-page-image {
-	width: 75vw;
+	width: 85vw;
 }
 
 .vertical {
@@ -193,11 +196,15 @@ img {
 }
 
 @media (min-width: 800px) {
+	main {
+		padding: 36px;
+	}
+
   .double {
     grid-template-columns: 1fr 1fr;
   }
 
-	img {
-		width: 100%;
+	.full-page-image {
+		width: 75vw;
 	}
 }
