@@ -1,0 +1,66 @@
+@import url(../../styles/remedy.css);
+
+@font-face {
+	font-family: 'Kippenberger Bold';
+	src: url('../../fonts/kippenberger-normal-700.woff2') format('woff2');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Kippenberger';
+	src: url('../../fonts/kippenberger-normal-400.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  justify-content: center;
+	height: 100vh;
+  background-image: url('../images/firework_flip.gif');
+	color: #000;
+	text-rendering: optimizeLegibility;
+  font-family: 'Kippenberger', sans-serif;
+	text-decoration-skip-ink: auto;
+	padding: 24px;
+	overflow: hidden;
+}
+
+h1 {
+  font-family: 'Kippenberger Bold', sans-serif;
+  font-size: 3rem;
+}
+
+p {
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+.book {
+  background: lavenderblush;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 45vh;
+  min-width: 60vw;
+  padding: 40px;
+  border-radius: 40px;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+}
+
+a {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: #ff3a0b;
+}
+
+a:hover {
+  color: black;
+}
