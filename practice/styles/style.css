@@ -170,7 +170,7 @@ img {
 	opacity: 0;
 	animation-name: animate-in;
 	animation-fill-mode: forwards;
-  animation-duration: 800ms;
+  animation-duration: 820ms;
 	animation-delay: 120ms;
 }
 
@@ -178,16 +178,16 @@ img {
 	opacity: 0;
 	animation-name: animate-in;
 	animation-fill-mode: forwards;
-  animation-duration: 800ms;
-  animation-delay: 320ms;
+  animation-duration: 820ms;
+  animation-delay: 240ms;
 }
 
 .animate-3 {
 	opacity: 0;
 	animation-name: animate-in;
 	animation-fill-mode: forwards;
-  animation-duration: 800ms;
-  animation-delay: 520ms;
+  animation-duration: 820ms;
+  animation-delay: 360ms;
 }
 
 @keyframes animate-in {
