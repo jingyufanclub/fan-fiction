@@ -39,6 +39,12 @@ main {
 	padding: 24px;
 }
 
+nav {
+	padding: 24px;
+	margin: 12px 0;
+	width: 100%;
+}
+
 section {
 	width: 100%;
 }
@@ -58,11 +64,10 @@ h2 {
   font-size: 4rem;
   font-weight: 700;
 	text-transform: uppercase;
-	line-height: 1.5;
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
 	line-height: 1.5;
 }
@@ -85,11 +90,6 @@ a {
 
 a:hover {
 	color: darkblue
-}
-
-nav {
-	margin: 48px 0;
-	width: 100%;
 }
 
 img {
@@ -158,6 +158,10 @@ img {
 	min-height: 65vh;
 }
 
+.score {
+	z-index: -1;
+}
+
 .rotate {
 	transform: var(--deg)
 }
@@ -166,24 +170,24 @@ img {
 	opacity: 0;
 	animation-name: animate-in;
 	animation-fill-mode: forwards;
-  animation-duration: 1s;
-	animation-delay: 150ms;
+  animation-duration: 800ms;
+	animation-delay: 120ms;
 }
 
 .animate-2 {
 	opacity: 0;
 	animation-name: animate-in;
 	animation-fill-mode: forwards;
-  animation-duration: 1s;
-  animation-delay: 350ms;
+  animation-duration: 800ms;
+  animation-delay: 320ms;
 }
 
 .animate-3 {
 	opacity: 0;
 	animation-name: animate-in;
 	animation-fill-mode: forwards;
-  animation-duration: 1s;
-  animation-delay: 550ms;
+  animation-duration: 800ms;
+  animation-delay: 520ms;
 }
 
 @keyframes animate-in {
@@ -196,7 +200,7 @@ img {
 }
 
 @media (min-width: 800px) {
-	main {
+	main, nav {
 		padding: 36px;
 	}
 
@@ -206,5 +210,11 @@ img {
 
 	.full-page-image {
 		width: 75vw;
+	}
+
+	.score {
+		min-width: 800px;
+		position: relative;
+		left: -150px;
 	}
 }
