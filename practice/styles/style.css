@@ -55,27 +55,20 @@ header {
 
 h1 {
 	font-family: 'Kippenberger Bold', sans-serif;
-  font-size: 8rem;
+  font-size: calc(8rem - 1ch);
 	text-transform: uppercase;
 	line-height: 1.5;
 }
 
 h2 {
-  font-size: 4rem;
+  font-size: calc(4rem - 1ch);
   font-weight: 700;
 	text-transform: uppercase;
 }
 
 h3 {
-  font-size: 1.8rem;
+  font-size: calc(1.8rem - 1ch);
   font-weight: 700;
-	line-height: 1.5;
-}
-
-h4 {
-	font-family: 'Kippenberger Bold', sans-serif;
-  font-size: 6rem;
-	text-transform: uppercase;
 	line-height: 1.5;
 }
 
@@ -202,6 +195,18 @@ img {
 @media (min-width: 800px) {
 	main, nav {
 		padding: 36px;
+	}
+
+	h1 {
+		font-size: 8rem;
+	}
+
+	h2 {
+		font-size: 4rem;
+	}
+
+	h3 {
+		font-size: 1.8rem;
 	}
 
   .double {
