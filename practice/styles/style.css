@@ -43,6 +43,7 @@ nav {
 	padding: 24px;
 	margin: 12px 0;
 	width: 100%;
+	z-index: 1;
 }
 
 section {
