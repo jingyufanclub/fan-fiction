@@ -109,8 +109,8 @@ h2 {
 	width: 240px;
 	height: 320px;
 	position: absolute;
-	top: -0.75rem;
-	left: 0.75rem;
+	top: 0.75rem;
+	left: -0.75rem;
 	z-index: -1;
 }
 

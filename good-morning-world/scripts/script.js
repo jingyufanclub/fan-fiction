@@ -10,7 +10,7 @@ window.onload = function () {
 
   const end = document.getElementById("end")
   if (index === 0) {
-    end.style.fontFamily = 'Parisienne, cursive';
+    end.style.fontFamily = "Parisienne, cursive";
     end.innerHTML = "~ The End ~"
   }
 }
