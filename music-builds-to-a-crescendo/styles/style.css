@@ -7,13 +7,9 @@ body {
   justify-content: center;
 	color: ghostwhite;
   font-family: 'Courier', monospace;
+  font-size: 16px;
 	text-rendering: optimizeLegibility;
 	text-decoration-skip-ink: auto;
-}
-
-h1 {
-  font-size: 20px;
-  text-align: center;
 }
 
 img {
@@ -27,9 +23,15 @@ video {
 
 #cc {
   position: fixed;
-  bottom: 2vh;
-  padding: 0.4rem;
+  bottom: 3vh;
+  margin: 0;
+  padding: 0.4rem 1rem;
   background-color: rgb(0,0,0,0.25);
+  text-align: center;
+  letter-spacing: 0.1rem;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 #gallery {
@@ -49,3 +51,8 @@ video {
   100% {opacity: 1}
 }
 
+@media only screen and (max-width:640px) {
+  #cc {
+    font-size: 0.9em;
+  }
+}
