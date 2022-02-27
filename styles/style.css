@@ -69,6 +69,14 @@ li {
 	position: relative;
 }
 
+.mono {
+	font-family: 'Courier New', monospace;
+	margin: 0;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 1.2rem;
+}
+
 #cover-grid a {
 	display: grid;
 	align-content: center;

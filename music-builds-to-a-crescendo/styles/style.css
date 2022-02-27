@@ -6,7 +6,7 @@ body {
 	align-items: center;
   justify-content: center;
 	color: ghostwhite;
-  font-family: 'Courier', monospace;
+  font-family: 'Courier New', monospace;
   font-size: 16px;
 	text-rendering: optimizeLegibility;
 	text-decoration-skip-ink: auto;
@@ -21,7 +21,7 @@ video {
   object-fit: cover;
 }
 
-#cc {
+.cc {
   position: fixed;
   bottom: 3vh;
   margin: 0;
@@ -52,7 +52,7 @@ video {
 }
 
 @media only screen and (max-width:640px) {
-  #cc {
+  .cc {
     font-size: 0.9em;
   }
 }
