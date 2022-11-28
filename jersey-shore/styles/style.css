@@ -9,12 +9,21 @@ body {
 	grid-gap: 1rem;
 	justify-items: center;
 	width: 100%;
-	margin: auto;
 	background: paleturquoise;
 	color: royalblue;
 	text-rendering: optimizeLegibility;
   font-family: 'Montserrat', sans-serif;
 	text-decoration-skip-ink: auto;
+	padding: 24px 0;
+}
+
+main {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+	grid-gap: 1rem;
+	justify-items: center;
+	width: 100%;
 }
 
 header, footer {
