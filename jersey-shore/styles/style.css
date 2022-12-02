@@ -78,7 +78,7 @@ img {
 .main-grid {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	width: 80vw;
+	width: 94vw;
 	min-height: 80vh;
 	border: solid 2px lightcyan;
 	border-radius: 4px;
