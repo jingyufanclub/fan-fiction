@@ -26,3 +26,11 @@ body {
 .story-text {
   width: 42%;
 }
+
+.message-section {
+  h2 {
+    color: darkblue;
+    font-style: italic;
+    font-size: 1rem;
+  }
+}
