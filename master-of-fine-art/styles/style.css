@@ -1,0 +1,28 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bodycontainer {
+  max-width: 1000px;
+  padding-bottom: 48px;
+}
+
+.story {
+  padding: 24px;
+  background-image: url("../images/googly_skull_banner.jpg");
+  height: 350px;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    font-style: italic;
+    color: crimson;
+  }
+}
+
+.story-text {
+  width: 42%;
+}
