@@ -28,7 +28,7 @@ h2 {
 
 #gallery {
   display: grid;
-  grid-template-columns: repeat(6, 100vw);
+  grid-template-columns: repeat(8, 100vw);
   height: 97dvh;
 }
 
@@ -46,7 +46,7 @@ h2 {
   grid-template-columns: 3fr 2fr;
 
   img {
-    max-height: 92dvh;
+    max-height: 94dvh;
     object-fit: contain;
     grid-row: 1 / 3;
     grid-column: 1 / 3;
