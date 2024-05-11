@@ -28,7 +28,7 @@ h2 {
 
 #gallery {
   display: grid;
-  grid-template-columns: repeat(8, 100vw);
+  grid-template-columns: repeat(10, 100vw);
   height: 97dvh;
 }
 
