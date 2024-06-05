@@ -43,8 +43,8 @@ article {
 
 h1 {
 	font-family: 'Sabon', serif;
-  font-size: 1.8rem;
-	font-weight: normal;
+  font-size: 2rem;
+	font-weight: bold;
 	line-height: 1.5;
 	text-align: center;
 }
@@ -92,6 +92,21 @@ li {
 h2 {
 	margin-top: 48px;
 	border-bottom: 1px solid var(--border);
+}
+
+.pattern-houndstooth {
+	--s: 224px; /* control the size*/
+  --c1: #c2ceff;
+  --c2: #e6e6e6;
+    
+  background:
+    conic-gradient(var(--c1) 25%,#0000 0 50%,var(--c2) 0 75%,#0000 0),
+    linear-gradient(135deg,
+      var(--c1) 0 12.5%,var(--c2) 0 25%,
+      var(--c1) 0 37.5%,var(--c2) 0 62.5%,
+      var(--c1) 0 75%  ,var(--c2) 0 87.5%,
+      var(--c1) 0);
+  background-size: var(--s) var(--s);
 }
 
 .pattern-grid {
