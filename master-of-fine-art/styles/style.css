@@ -1,3 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+	min-height: 100%;
+	font-size: 16px;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -6,7 +16,7 @@ body {
 
 .bodycontainer {
   max-width: 1000px;
-  padding-bottom: 48px;
+  padding-bottom: 3rem;
 }
 
 .story {
@@ -33,6 +43,7 @@ body {
 
   @media only screen and (max-width: 400px) {
     width: 100%;
+    max-width: 100%;
     background-color: rgba(255, 255, 255, 0.75);
     padding: 0 0.5rem;
     border-radius: 0.25rem;
@@ -49,6 +60,8 @@ body {
 h1 {
   font-style: italic;
   color: crimson;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
 }
 
 h2 {
