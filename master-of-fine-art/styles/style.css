@@ -16,21 +16,20 @@ body {
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-
-  h1 {
-    font-style: italic;
-    color: crimson;
-  }
 }
 
 .story-text {
   width: 42%;
+  font-size: 1rem;
 }
 
-.message-section {
-  h2 {
-    color: darkblue;
-    font-style: italic;
-    font-size: 1rem;
-  }
+h1 {
+  font-style: italic;
+  color: crimson;
+}
+
+h2 {
+  color: crimson;
+  font-style: italic;
+  font-size: 1rem;
 }
