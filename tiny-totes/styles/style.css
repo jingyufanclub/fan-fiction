@@ -1,0 +1,142 @@
+@import url(../../styles/remedy.css);
+
+@import url("https://fonts.googleapis.com/css2?family=Micro+5&display=swap");
+
+body {
+  font-family: "Micro 5", sans-serif;
+  color: midnightblue;
+  background: #faf8f5;
+  overflow-x: hidden;
+}
+
+#scroll-track {
+  width: 100%;
+  position: relative;
+}
+
+#stage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bag-layer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, opacity;
+}
+
+.bag-layer img {
+  max-height: 65dvh;
+  max-width: 75vw;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.bag-placeholder {
+  border: 3px dashed midnightblue;
+  border-radius: 20px 20px 30px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  text-align: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.bag-label {
+  margin-top: 1.5rem;
+  font-size: 2.2rem;
+  text-align: center;
+  line-height: 1.1;
+  padding: 0 1rem;
+}
+
+.bag-description {
+  font-size: 1.4rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+#cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  background: #faf8f5;
+  pointer-events: none;
+}
+
+#cover h1 {
+  font-size: 4.5rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+#cover .subtitle {
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+
+#scroll-hint {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.8rem;
+  z-index: 200;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+@keyframes bounce-up {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) translateY(-12px);
+    opacity: 0.5;
+  }
+}
+
+#scroll-hint.visible {
+  animation: bounce-up 1.8s ease-in-out infinite;
+}
+
+#finale {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+}
+
+#finale h2 {
+  font-size: 3rem;
+  text-align: center;
+  line-height: 1.2;
+}
