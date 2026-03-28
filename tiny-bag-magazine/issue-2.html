@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>tiny bag magazine — issue 2: nesting dolls</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="tote bags, nested" />
+    <meta name="author" content="Jing Yu" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👜</text></svg>"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Micro+5&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Micro 5", sans-serif;
+        color: midnightblue;
+        background: #faf8f5;
+        overflow-x: hidden;
+      }
+
+      #scroll-track {
+        width: 100%;
+        position: relative;
+      }
+
+      #stage {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .bag-layer {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        will-change: transform, opacity;
+      }
+
+      .bag-layer img {
+        max-height: 65dvh;
+        max-width: 75vw;
+        object-fit: contain;
+        border-radius: 8px;
+      }
+
+      .bag-placeholder {
+        border: 3px dashed midnightblue;
+        border-radius: 20px 20px 30px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        text-align: center;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.5);
+      }
+
+      .bag-label {
+        margin-top: 1.5rem;
+        font-size: 2.2rem;
+        text-align: center;
+        line-height: 1.1;
+        padding: 0 1rem;
+      }
+
+      .bag-description {
+        font-size: 1.4rem;
+        margin-top: 0.5rem;
+        text-align: center;
+      }
+
+      #cover {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+        background: #faf8f5;
+        pointer-events: none;
+      }
+
+      #cover h1 {
+        font-size: 4.5rem;
+        line-height: 1.2;
+        text-align: center;
+      }
+
+      #cover .subtitle {
+        font-size: 2rem;
+        margin-top: 1rem;
+      }
+
+      #scroll-hint {
+        position: fixed;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1.8rem;
+        z-index: 200;
+        pointer-events: none;
+        white-space: nowrap;
+      }
+
+      @keyframes bounce-up {
+        0%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+          opacity: 1;
+        }
+        50% {
+          transform: translateX(-50%) translateY(-12px);
+          opacity: 0.5;
+        }
+      }
+
+      #scroll-hint.visible {
+        animation: bounce-up 1.8s ease-in-out infinite;
+      }
+
+      #finale {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+        pointer-events: none;
+        opacity: 0;
+      }
+
+      #finale h2 {
+        font-size: 3rem;
+        text-align: center;
+        line-height: 1.2;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cover">
+      <h1>Tiny</h1>
+      <h1>Bag</h1>
+      <h1>Magazine</h1>
+      <p class="subtitle">issue 2: nesting dolls</p>
+    </div>
+
+    <div id="scroll-hint" class="visible">↑ scroll up to unnest ↑</div>
+
+    <div id="stage"></div>
+    <div id="finale">
+      <h2>the tiniest bag</h2>
+    </div>
+    <div id="scroll-track"></div>
+
+    <script>
+      // ============================================================
+      // TOTE BAG DATA — edit this array with your own bags & images!
+      // Ordered LARGEST → SMALLEST (outermost to innermost nesting doll)
+      // To use an image: add an `image` key with the path, e.g.
+      //   { name: '...', description: '...', image: 'images/mybag.jpg' }
+      // Without `image`, a dashed placeholder outline is shown.
+      // ============================================================
+      const bags = [
+        {
+          name: "The Enormous Tote",
+          description: "Holds: a smaller tote",
+          color: "#e8d5c4",
+          width: 340,
+          height: 400,
+        },
+        {
+          name: "The Big Tote",
+          description: "Holds: a slightly smaller tote",
+          color: "#d4c4b0",
+          width: 300,
+          height: 360,
+        },
+        {
+          name: "The Medium Tote",
+          description: "Holds: a smaller tote, somehow",
+          color: "#c9b8a8",
+          width: 260,
+          height: 310,
+        },
+        {
+          name: "The Modest Tote",
+          description: "Holds: yet another tote",
+          color: "#bfad9c",
+          width: 220,
+          height: 260,
+        },
+        {
+          name: "The Small Tote",
+          description: "Holds: one more tote",
+          color: "#b5a290",
+          width: 180,
+          height: 220,
+        },
+        {
+          name: "The Mini Tote",
+          description: "Holds: a tiny tote",
+          color: "#ab9784",
+          width: 140,
+          height: 170,
+        },
+        {
+          name: "The Micro Tote",
+          description: "Holds: just vibes",
+          color: "#a08c78",
+          width: 100,
+          height: 120,
+        },
+      ];
+
+      // ============================================================
+      // BUILD THE SCENE
+      // ============================================================
+      const stage = document.getElementById("stage");
+      const scrollTrack = document.getElementById("scroll-track");
+      const cover = document.getElementById("cover");
+      const hint = document.getElementById("scroll-hint");
+      const finale = document.getElementById("finale");
+      const numBags = bags.length;
+
+      // Scroll track height: 1 screen for cover + 1 screen per bag transition + 1 for finale
+      scrollTrack.style.height = (numBags + 2) * 100 + "dvh";
+
+      // Create bag layers (rendered in reverse so largest is behind smallest in DOM)
+      for (let i = numBags - 1; i >= 0; i--) {
+        const bag = bags[i];
+        const layer = document.createElement("div");
+        layer.className = "bag-layer";
+        layer.style.zIndex = numBags - i;
+
+        if (bag.image) {
+          const img = document.createElement("img");
+          img.src = bag.image;
+          img.alt = bag.name;
+          layer.appendChild(img);
+        } else {
+          const placeholder = document.createElement("div");
+          placeholder.className = "bag-placeholder";
+          placeholder.style.width = bag.width + "px";
+          placeholder.style.height = bag.height + "px";
+          placeholder.style.backgroundColor = bag.color;
+          placeholder.textContent = "📦";
+          placeholder.style.fontSize = "3rem";
+          layer.appendChild(placeholder);
+        }
+
+        const label = document.createElement("div");
+        label.className = "bag-label";
+        label.textContent = bag.name;
+        layer.appendChild(label);
+
+        const desc = document.createElement("div");
+        desc.className = "bag-description";
+        desc.textContent = bag.description;
+        layer.appendChild(desc);
+
+        stage.appendChild(layer);
+        bag.element = layer;
+      }
+
+      // ============================================================
+      // SCROLL TO BOTTOM ON LOAD
+      // ============================================================
+      window.scrollTo(0, document.body.scrollHeight);
+
+      // ============================================================
+      // SCROLL-DRIVEN NESTING ANIMATION
+      // ============================================================
+      function update() {
+        const maxScroll =
+          document.documentElement.scrollHeight - window.innerHeight;
+        const scrollTop = window.scrollY;
+
+        // progress: 0 at bottom (start), 1 at top (end)
+        const progress = Math.min(
+          Math.max(1 - scrollTop / maxScroll, 0),
+          1
+        );
+
+        // Cover: visible only at very start (progress 0 → ~0.08)
+        const coverEnd = 0.08;
+        if (progress < coverEnd) {
+          const t = progress / coverEnd;
+          cover.style.opacity = 1 - t;
+          cover.style.display = "";
+        } else {
+          cover.style.opacity = 0;
+          cover.style.display = "none";
+        }
+
+        // Scroll hint: fade out as you start scrolling
+        if (progress < 0.05) {
+          hint.style.opacity = 1;
+        } else {
+          hint.style.opacity = Math.max(0, 1 - (progress - 0.05) / 0.05);
+        }
+
+        // Bag transitions occupy the middle of the progress range
+        const bagStart = 0.1;
+        const bagEnd = 0.88;
+        const bagRange = bagEnd - bagStart;
+        const bagProgress = Math.min(
+          Math.max((progress - bagStart) / bagRange, 0),
+          1
+        );
+
+        // Map to bag index
+        const continuousIndex = bagProgress * (numBags - 1);
+        const currentIndex = Math.min(
+          Math.floor(continuousIndex),
+          numBags - 2
+        );
+        const t = continuousIndex - currentIndex;
+
+        for (let i = 0; i < numBags; i++) {
+          const layer = bags[i].element;
+
+          if (progress < bagStart) {
+            // Before bag section — show only the largest
+            if (i === 0) {
+              layer.style.transform = "scale(1)";
+              layer.style.opacity = 1;
+            } else {
+              layer.style.transform = "scale(0.3)";
+              layer.style.opacity = 0;
+            }
+          } else if (progress > bagEnd) {
+            // After bag section — show only the smallest
+            if (i === numBags - 1) {
+              const finaleT = Math.min(
+                (progress - bagEnd) / (1 - bagEnd),
+                1
+              );
+              layer.style.transform = "scale(1)";
+              layer.style.opacity = 1 - finaleT * 0.5;
+            } else {
+              layer.style.transform = "scale(3)";
+              layer.style.opacity = 0;
+            }
+          } else if (i < currentIndex) {
+            // Already "opened" — zoomed past
+            layer.style.transform = "scale(3)";
+            layer.style.opacity = 0;
+          } else if (i === currentIndex) {
+            // Current bag: scales from 1→2.5 and fades out
+            const scale = 1 + t * 1.5;
+            const opacity = 1 - t;
+            layer.style.transform = "scale(" + scale + ")";
+            layer.style.opacity = opacity;
+          } else if (i === currentIndex + 1) {
+            // Next bag: scales from 0.3→1 and fades in
+            const scale = 0.3 + t * 0.7;
+            const opacity = t;
+            layer.style.transform = "scale(" + scale + ")";
+            layer.style.opacity = opacity;
+          } else {
+            // Not yet reached — hidden small
+            layer.style.transform = "scale(0.3)";
+            layer.style.opacity = 0;
+          }
+        }
+
+        // Finale
+        const finaleStart = 0.92;
+        if (progress > finaleStart) {
+          const ft = (progress - finaleStart) / (1 - finaleStart);
+          finale.style.opacity = ft;
+        } else {
+          finale.style.opacity = 0;
+        }
+      }
+
+      window.addEventListener("scroll", update, { passive: true });
+      window.addEventListener("resize", update);
+
+      // Run on load after scroll position is set
+      requestAnimationFrame(() => {
+        requestAnimationFrame(update);
+      });
+    </script>
+  </body>
+</html>
