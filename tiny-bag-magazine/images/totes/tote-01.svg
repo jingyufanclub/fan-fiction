@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" shape-rendering="crispEdges">
+  <defs>
+    <pattern id="checks" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path fill="#3563df" d="M0 0h16v16H0z"/>
+      <path fill="#d4e5fa" d="M0 0h8v8H0zM8 8h8v8H8z"/>
+    </pattern>
+  </defs>
+  <path fill="#183a9c" d="M24 38V14h4V6h8V2h24v4h8v8h4v24H60V16h-4v-4H40v4h-4v22z"/>
+  <path fill="#6683eb" d="M28 36V14h4V8h8V6h16v4H40v6h-4v20z"/>
+  <path fill="#183a9c" d="M6 36h84v48h-4v8H10v-8H6z"/>
+  <path fill="url(#checks)" d="M10 40h72v44h-4v4H14v-4h-4z"/>
+  <path fill="#234ebd" d="M82 40h4v44h-4v4H18v-4h60v-4h4z"/>
+  <path fill="#183a9c" d="M24 36h12v12H24zM60 36h12v12H60z"/>
+  <path fill="#6b91ef" d="M28 38h4v8h-4zM64 38h4v8h-4z"/>
+</svg>

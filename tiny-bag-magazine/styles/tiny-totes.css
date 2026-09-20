@@ -1,142 +1,92 @@
-@import url(../../styles/remedy.css);
+@import url("../../styles/remedy.css");
 
-@import url("https://fonts.googleapis.com/css2?family=Micro+5&display=swap");
+:root {
+  background: #fbf9f4;
+  color-scheme: light;
+  --bag-width: min(86vw, 76svh, 800px);
+}
 
 body {
-  font-family: "Micro 5", sans-serif;
-  color: midnightblue;
-  background: #faf8f5;
-  overflow-x: hidden;
+  margin: 0;
 }
 
-#scroll-track {
-  width: 100%;
-  position: relative;
+.bags {
+  list-style: none;
 }
 
-#stage {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100dvh;
+.bag {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
+  min-height: 100svh;
 }
 
-.bag-layer {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  will-change: transform, opacity;
-}
-
-.bag-layer img {
-  max-height: 65dvh;
-  max-width: 75vw;
+.bag img {
+  width: calc(var(--bag-width) * var(--size));
+  height: auto;
+  max-height: calc(76svh * var(--size));
   object-fit: contain;
-  border-radius: 8px;
 }
 
-.bag-placeholder {
-  border: 3px dashed midnightblue;
-  border-radius: 20px 20px 30px 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-  text-align: center;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.5);
+.bag img[src$=".svg"] {
+  image-rendering: pixelated;
 }
 
-.bag-label {
-  margin-top: 1.5rem;
-  font-size: 2.2rem;
-  text-align: center;
-  line-height: 1.1;
-  padding: 0 1rem;
+.is-nesting .stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
 }
 
-.bag-description {
-  font-size: 1.4rem;
-  margin-top: 0.5rem;
-  text-align: center;
+.is-nesting .bags {
+  position: relative;
+  height: 100%;
 }
 
-#cover {
-  position: fixed;
+.is-nesting .bag {
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
-  background: #faf8f5;
-  pointer-events: none;
+  width: 100%;
+  min-height: 0;
+  will-change: transform, clip-path;
 }
 
-#cover h1 {
-  font-size: 4.5rem;
-  line-height: 1.2;
-  text-align: center;
-}
-
-#cover .subtitle {
-  font-size: 2rem;
-  margin-top: 1rem;
-}
-
-#scroll-hint {
+.motion-toggle {
   position: fixed;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.8rem;
-  z-index: 200;
-  pointer-events: none;
-  white-space: nowrap;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 1px solid #183a9c;
+  border-radius: 50%;
+  background: #fbf9f4;
+  color: #183a9c;
+  cursor: pointer;
 }
 
-@keyframes bounce-up {
-  0%,
-  100% {
-    transform: translateX(-50%) translateY(0);
-    opacity: 1;
-  }
-  50% {
-    transform: translateX(-50%) translateY(-12px);
-    opacity: 0.5;
-  }
+.motion-toggle svg {
+  fill: currentColor;
 }
 
-#scroll-hint.visible {
-  animation: bounce-up 1.8s ease-in-out infinite;
+.motion-toggle[hidden] {
+  display: none;
 }
 
-#finale {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
-  pointer-events: none;
-  opacity: 0;
+.motion-toggle:focus-visible {
+  outline: 3px solid #183a9c;
+  outline-offset: 4px;
 }
 
-#finale h2 {
-  font-size: 3rem;
-  text-align: center;
-  line-height: 1.2;
+.motion-toggle[aria-pressed="false"] .pause-icon,
+.motion-toggle[aria-pressed="true"] .play-icon {
+  display: none;
 }

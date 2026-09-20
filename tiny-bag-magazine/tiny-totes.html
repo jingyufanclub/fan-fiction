@@ -1,33 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <title>tiny bag magazine — issue 2: nesting dolls</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="tote bags, nested" />
-    <meta name="author" content="Jing Yu" />
-    <link rel="stylesheet" href="styles/tiny-totes.css" />
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👜</text></svg>"
-    />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Jing Yu">
+    <title>Tiny Bag Magazine · Vol. 2</title>
+    <link rel="icon" href="images/totes/tote-07.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles/tiny-totes.css">
+    <script defer src="scripts/nesting.js"></script>
   </head>
   <body>
-    <div id="cover">
-      <h1>Tiny</h1>
-      <h1>Bag</h1>
-      <h1>Magazine</h1>
-      <p class="subtitle">issue 2: nesting dolls</p>
-    </div>
-
-    <div id="scroll-hint" class="visible">↑ scroll up to unnest ↑</div>
-
-    <div id="stage"></div>
-    <div id="finale">
-      <h2>the tiniest bag</h2>
-    </div>
-    <div id="scroll-track"></div>
-
-    <script type="text/javascript" src="scripts/nesting.js"></script>
+    <main id="nest" aria-label="Tiny Bag Magazine, Volume 2">
+      <div class="stage">
+        <ol class="bags" role="list" aria-label="Tote bags, from largest to smallest">
+          <li class="bag" style="--size: 1" data-mouth="0.375">
+            <img src="images/totes/tote-01.svg" width="96" height="96" alt="Giant blue checkerboard tote, pixel placeholder" draggable="false">
+          </li>
+          <li class="bag" style="--size: 0.8" data-mouth="0.375">
+            <img src="images/totes/tote-02.svg" width="96" height="96" alt="Large coral striped tote, pixel placeholder" draggable="false">
+          </li>
+          <li class="bag" style="--size: 0.63" data-mouth="0.375">
+            <img src="images/totes/tote-03.svg" width="96" height="96" alt="Green flower tote, pixel placeholder" draggable="false">
+          </li>
+          <li class="bag" style="--size: 0.48" data-mouth="0.375">
+            <img src="images/totes/tote-04.svg" width="96" height="96" alt="Yellow heart tote, pixel placeholder" draggable="false">
+          </li>
+          <li class="bag" style="--size: 0.35" data-mouth="0.375">
+            <img src="images/totes/tote-05.svg" width="96" height="96" alt="Small purple zigzag tote, pixel placeholder" draggable="false">
+          </li>
+          <li class="bag" style="--size: 0.24" data-mouth="0.375">
+            <img src="images/totes/tote-06.svg" width="96" height="96" alt="Mini pink checkerboard tote, pixel placeholder" draggable="false">
+          </li>
+          <li class="bag" style="--size: 0.15" data-mouth="0.375">
+            <img src="images/totes/tote-07.svg" width="96" height="96" alt="Smallest red star tote, pixel placeholder" draggable="false">
+          </li>
+        </ol>
+      </div>
+    </main>
+    <button class="motion-toggle" type="button" aria-label="Play the bag animation" aria-pressed="false" hidden>
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path class="play-icon" d="m8 5 11 7-11 7z"/>
+        <path class="pause-icon" d="M6 5h4v14H6zM14 5h4v14h-4z"/>
+      </svg>
+    </button>
   </body>
 </html>
