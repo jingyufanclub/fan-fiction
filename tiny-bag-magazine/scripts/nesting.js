@@ -2,13 +2,11 @@ const nest = document.querySelector("#nest");
 const stage = nest.querySelector(".stage");
 const bags = [...nest.querySelectorAll(".bag")];
 const motionToggle = document.querySelector(".motion-toggle");
-const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 let height = 0;
 let sizes = [];
 let frame = 0;
 let animated = false;
-let motionOverride = null;
 
 const clamp = (value) => Math.max(0, Math.min(1, value));
 const mix = (start, end, progress) => start + (end - start) * progress;
@@ -68,11 +66,11 @@ function measure() {
   requestRender();
 }
 
-function setMotion(preservePosition = false) {
+function setMotion(enabled, preservePosition = false) {
   const position = clamp(-nest.getBoundingClientRect().top / Math.max(1, nest.offsetHeight - innerHeight));
-  animated = (motionOverride ?? !reducedMotion.matches) && bags.length > 1;
+  animated = enabled && bags.length > 1;
   nest.classList.toggle("is-nesting", animated);
-  motionToggle.hidden = !reducedMotion.matches;
+  motionToggle.hidden = bags.length < 2;
   motionToggle.setAttribute("aria-pressed", String(animated));
 
   if (animated) {
@@ -95,13 +93,8 @@ function setMotion(preservePosition = false) {
 window.addEventListener("scroll", requestRender, { passive: true });
 window.addEventListener("resize", measure);
 window.addEventListener("pageshow", measure);
-reducedMotion.addEventListener("change", () => {
-  motionOverride = null;
-  setMotion(true);
-});
 motionToggle.addEventListener("click", () => {
-  motionOverride = !animated;
-  setMotion(true);
+  setMotion(!animated, true);
 });
 bags.forEach((bag) => bag.querySelector("img").addEventListener("load", measure));
-setMotion();
+setMotion(true);
