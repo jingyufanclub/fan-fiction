@@ -1,14 +1,10 @@
 const nest = document.querySelector("#nest");
 const stage = nest.querySelector(".stage");
 const bags = [...nest.querySelectorAll(".bag")];
-const motionToggle = document.querySelector(".motion-toggle");
-const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 let height = 0;
 let sizes = [];
 let frame = 0;
-let animated = false;
-let motionOverride = null;
 
 const clamp = (value) => Math.max(0, Math.min(1, value));
 const mix = (start, end, progress) => start + (end - start) * progress;
@@ -24,7 +20,6 @@ function place(index, top, opacity, clip = 0) {
 
 function render() {
   frame = 0;
-  if (!animated) return;
 
   const distance = -nest.getBoundingClientRect().top;
   const progress = Math.max(0, Math.min(bags.length - 1,
@@ -57,51 +52,24 @@ function render() {
 }
 
 function requestRender() {
-  if (animated && !frame) frame = requestAnimationFrame(render);
+  if (!frame) frame = requestAnimationFrame(render);
 }
 
 function measure() {
-  if (!animated) return;
   height = stage.clientHeight;
   sizes = bags.map((bag) => bag.querySelector("img").getBoundingClientRect().height);
   nest.style.height = `${height * (1 + 0.18 + (bags.length - 1) * 1.18 + 0.3)}px`;
   requestRender();
 }
 
-function setMotion(preservePosition = false) {
-  const position = clamp(-nest.getBoundingClientRect().top / Math.max(1, nest.offsetHeight - innerHeight));
-  animated = (motionOverride ?? !reducedMotion.matches) && bags.length > 1;
-  nest.classList.toggle("is-nesting", animated);
-  motionToggle.hidden = !reducedMotion.matches;
-  motionToggle.setAttribute("aria-pressed", String(animated));
-
-  if (animated) {
-    bags.forEach((bag, index) => { bag.style.zIndex = bags.length - index; });
-    measure();
-  } else {
-    nest.style.removeProperty("height");
-    bags.forEach((bag) => {
-      for (const property of ["transform", "opacity", "clip-path", "z-index"]) {
-        bag.style.removeProperty(property);
-      }
-    });
-  }
-
-  if (preservePosition) {
-    window.scrollTo({ top: nest.offsetTop + position * Math.max(0, nest.offsetHeight - innerHeight), behavior: "auto" });
-  }
+if (bags.length > 1) {
+  nest.classList.add("is-nesting");
+  bags.forEach((bag, index) => {
+    bag.style.zIndex = bags.length - index;
+    bag.querySelector("img").addEventListener("load", measure);
+  });
+  window.addEventListener("scroll", requestRender, { passive: true });
+  window.addEventListener("resize", measure);
+  window.addEventListener("pageshow", measure);
+  measure();
 }
-
-window.addEventListener("scroll", requestRender, { passive: true });
-window.addEventListener("resize", measure);
-window.addEventListener("pageshow", measure);
-reducedMotion.addEventListener("change", () => {
-  motionOverride = null;
-  setMotion(true);
-});
-motionToggle.addEventListener("click", () => {
-  motionOverride = !animated;
-  setMotion(true);
-});
-bags.forEach((bag) => bag.querySelector("img").addEventListener("load", measure));
-setMotion();
