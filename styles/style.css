@@ -94,6 +94,21 @@ h2 {
 	border-bottom: 1px solid var(--border);
 }
 
+.tbm-cover h2 {
+	border: 0;
+	margin-bottom: 0;
+}
+
+.tbm-cover hr {
+	border: 0;
+	border-top: 1px solid var(--border);
+	margin: 4px 0;
+}
+
+.tbm-cover p {
+	margin: 0;
+}
+
 .pattern-houndstooth {
 	--s: 224px; /* control the size*/
   --c1: #c2ceff;
