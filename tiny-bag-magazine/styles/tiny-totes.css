@@ -55,38 +55,3 @@ body {
   min-height: 0;
   will-change: transform, clip-path;
 }
-
-.motion-toggle {
-  position: fixed;
-  right: 16px;
-  bottom: 16px;
-  z-index: 1;
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  padding: 10px;
-  border: 1px solid #183a9c;
-  border-radius: 50%;
-  background: #fbf9f4;
-  color: #183a9c;
-  cursor: pointer;
-}
-
-.motion-toggle svg {
-  fill: currentColor;
-}
-
-.motion-toggle[hidden] {
-  display: none;
-}
-
-.motion-toggle:focus-visible {
-  outline: 3px solid #183a9c;
-  outline-offset: 4px;
-}
-
-.motion-toggle[aria-pressed="false"] .pause-icon,
-.motion-toggle[aria-pressed="true"] .play-icon {
-  display: none;
-}
